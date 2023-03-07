@@ -1,0 +1,156 @@
+.container-product-add {
+    width: 100%;
+    height: 649px;
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+
+    &>.container-main-add {
+        width: 500px;
+        height: 400px;
+        background-color: #fff;
+        margin-top: 100px;
+
+        &>.values-input-add {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25px;
+            gap: 20px;
+
+            &>.value-add {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &>.title-add {
+                    font-size: 20px;
+                }
+
+                &>.input-add {
+                    width: 200px;
+                    height: 25px;
+                    text-align: center;
+                    border: 1px solid black;
+                }
+
+                &>.input-number-add {
+                    width: 200px;
+                    height: 25px;
+                    text-align: center;
+                    border: 1px solid black;
+                }
+
+                &>.error-message {
+                    color: red;
+                    margin-bottom: -15px;
+                }
+
+            }
+
+            &>.container-true-false-add {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                &>.title-add {
+                    font-size: 20px;
+                }
+
+                &>.false-true-add {
+                    margin-top: 10px;
+                    margin-bottom: 5px;
+                    width: 20%;
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 15px;
+                }
+
+
+
+                &>.false {
+                    width: 80px;
+                    height: 25px;
+                    background-color: red;
+                    border: none;
+                    border-radius: 30px;
+
+                    &::after {
+                        content: '';
+                        display: inline-block;
+                        width: 35px;
+                        height: 35px;
+                        position: relative;
+                        top: -3px;
+                        left: -30%;
+                        border-radius: 50%;
+                        background-color: rgb(219, 218, 218);
+                        transition: .6s;
+                    }
+
+                    &:hover {
+                        transition: .6s;
+                        cursor: pointer;
+                    }
+
+
+                }
+
+                &>.true {
+                    width: 80px;
+                    height: 25px;
+                    background-color: green;
+                    border: none;
+                    border-radius: 30px;
+
+                    &::after {
+                        content: '';
+                        display: inline-block;
+                        width: 35px;
+                        height: 35px;
+                        position: relative;
+                        top: -3px;
+                        left: 30%;
+                        border-radius: 50%;
+                        background-color: rgb(219, 218, 218);
+                        transition: .6s;
+                    }
+
+                    &:hover {
+                        transition: .6s;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+
+
+            &>.buttons-add {
+                display: flex;
+                gap: 10px;
+
+                &>.button-add {
+                    width: 95px;
+                    height: 30px;
+                    border: 1px solid black;
+                    background-color: #fff;
+                    color: #000;
+                    margin-top: 20px;
+
+                    &:hover {
+                        background-color: #000;
+                        color: #fff;
+                        transition: .2s;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
