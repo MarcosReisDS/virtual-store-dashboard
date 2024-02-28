@@ -1,0 +1,418 @@
+.container-products {
+    transition: .2s;
+    &.open {
+        padding-left: 23%;
+    }
+
+    &.closed {
+        padding-left: 9%;
+    }
+
+    padding-right: 2%;
+    padding-top: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &>div {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+        &:nth-child(1) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &>button {
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                padding: 20px;
+                cursor: pointer;
+                width: 100%;
+            }
+        }
+
+        &:nth-child(2) {
+            &>.container-cards {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+                padding: 20px;
+
+                &>.card {
+                    border: 1px solid #e8e5e5;
+                    border-radius: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    position: relative;
+                    justify-content: space-between;
+
+                    &>.edit-trash {
+                        width: 100%;
+                        display: flex;
+                        position: absolute;
+                        justify-content: space-between;
+
+                        &>.edit {
+                            color: blue;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+
+                        &>.trash {
+                            color: red;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+                    }
+
+                    &>.name {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 18px;
+                        padding-top: 15px;
+                    }
+
+                    &>.img {
+                        height: 300px;
+                        background-color: #ededee;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &>img {
+                            width: 65%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    &>.price {
+                        display: flex;
+                        justify-content: center;
+                        cursor: default;
+                    }
+
+                    &>.colorsize {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0px 20px;
+
+                        &>.color {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 10px;
+
+                            &>.add-color {
+                                &>button {
+                                    background-color: transparent;
+                                    border: 1px solid;
+                                    font-size: 15px;
+                                    cursor: pointer;
+                                    border-radius: 3px;
+                                    padding: 5px;
+
+                                    &.nada {
+                                        display: none;
+                                    }
+                                }
+
+                                &>div {
+                                    width: 100%;
+                                    border: 1px solid;
+                                    padding: 10px 0px;
+                                    border-radius: 3px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    gap: 5px;
+
+                                    &.sumiu {
+                                        display: none;
+                                    }
+
+                                    &>input {
+                                        padding: 5px;
+                                        width: 70%;
+                                        font-size: 13px;
+
+                                        &:nth-child(2) {
+                                            padding: 0px;
+                                            width: 40%;
+                                        }
+                                    }
+
+                                    &>div {
+                                        display: flex;
+                                        gap: 5px;
+
+                                        &>button {
+                                            background-color: transparent;
+                                            border: 1px solid;
+                                            padding: 5px;
+                                            border-radius: 3px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &>.colors {
+                                border: 1px solid #494949;
+                                border-radius: 3px;
+                                padding: 5px 5px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+
+                                &>div {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 5px;
+                                    border-bottom: 1px solid;
+                                    padding-bottom: 5px;
+
+                                    &:last-child {
+                                        padding-bottom: 0px;
+                                        border-bottom: transparent;
+                                    }
+
+                                    &>.ball {
+                                        width: 20px;
+                                        height: 20px;
+                                        border-radius: 50%;
+                                        border: 1px solid #000;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+
+                                        &>div {
+                                            width: 16px;
+                                            height: 16px;
+                                            border-radius: 50%;
+                                        }
+                                    }
+
+                                    &>p {
+                                        font-size: 15px;
+                                    }
+
+                                    &>.icons {
+                                        font-size: 13px;
+                                        height: 100%;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 7px;
+                                        padding-left: 5px;
+
+                                        &>.edit {
+                                            color: blue;
+                                            cursor: pointer;
+                                        }
+
+                                        &>.trash {
+                                            color: red;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                        &>.size {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                            align-items: center;
+
+                            &>.add-size {
+                                &>button {
+                                    background-color: transparent;
+                                    border: 1px solid;
+                                    font-size: 15px;
+                                    cursor: pointer;
+                                    border-radius: 3px;
+                                    padding: 5px;
+
+                                    &.nada {
+                                        display: none;
+                                    }
+                                }
+
+
+                                &>div {
+                                    width: 100%;
+                                    border: 1px solid;
+                                    padding: 10px 0px;
+                                    border-radius: 3px;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    gap: 5px;
+
+                                    &.sumiu {
+                                        display: none;
+                                    }
+
+                                    &>input {
+                                        padding: 5px;
+                                        width: 70%;
+                                        font-size: 13px;
+
+                                        &:nth-child(2) {
+                                            padding: 0px;
+                                            width: 40%;
+                                        }
+                                    }
+
+                                    &>div {
+                                        display: flex;
+                                        gap: 5px;
+
+                                        &>button {
+                                            background-color: transparent;
+                                            border: 1px solid;
+                                            padding: 5px;
+                                            border-radius: 3px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &>.sizes {
+                                border: 1px solid #494949;
+                                border-radius: 3px;
+                                padding: 0px 5px;
+                                display: flex;
+                                flex-direction: column;
+
+                                &.not {
+                                    border: none;
+                                }
+
+                                &>div {
+                                    display: flex;
+                                    border-bottom: 1px solid #000;
+                                    width: 100%;
+                                    justify-content: flex-end;
+                                    padding: 3px 0px;
+
+                                    &:last-child {
+                                        border-bottom: transparent;
+                                    }
+
+
+                                    &>div {
+                                        &>p {
+                                            font-size: 15px;
+                                        }
+                                    }
+
+                                    &>.icons {
+                                        font-size: 13px;
+                                        display: flex;
+                                        gap: 7px;
+                                        padding-left: 28px;
+                                        align-items: center;
+
+
+                                        &>.edit {
+                                            color: blue;
+                                            cursor: pointer;
+                                        }
+
+                                        &>.trash {
+                                            color: red;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &>.type {
+                        display: flex;
+                        justify-content: center;
+
+                        &>div {
+                            border: 1px solid;
+                            padding: 10px 15px;
+                            border-radius: 3px;
+                        }
+                    }
+
+                    &>.quantity {
+                        display: flex;
+                        justify-content: center;
+
+                        &>div {
+                            border: 1px solid;
+                            padding: 10px 15px;
+                            border-radius: 3px;
+                        }
+                    }
+
+                    &>.container-description {
+                        padding: 0px 5px;
+
+                        &>.description {
+                            padding: 10px 5px;
+                            padding-bottom: 10px;
+                            border-top: 1px solid #e8e5e5;
+                            display: flex;
+
+                            &.plus {
+                                display: none;
+                            }
+
+                            &>p {
+                                text-align: justify;
+                                font-size: 15px;
+                            }
+                        }
+
+                        &>.arrow {
+                            display: flex;
+                            justify-content: center;
+
+                            cursor: pointer;
+                            border-top: 1px solid #e8e5e5;
+                            padding: 4px 0px;
+                            margin-top: 0px;
+
+                            &.plus {
+                                margin-top: 35px;
+                            }
+
+                            &>.arrow {
+                                font-size: 25px;
+
+                                &.plus {
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
