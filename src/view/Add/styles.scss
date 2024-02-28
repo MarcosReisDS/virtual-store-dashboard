@@ -1,0 +1,104 @@
+.container-add {
+    transition: .2s;
+    &.open {
+        padding-left: 23%;
+    }
+
+    &.closed {
+        padding-left: 9%;
+    }
+    padding-right: 2%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &>.container {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        padding: 30px 0px;
+
+        &>div {
+            background-color: #ededee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 350px;
+
+            &>img {
+                width: 70%;
+            }
+        }
+
+        &>input {
+            border: 1px solid #e8e5e5;
+            padding: 13px 10px;
+            width: 40%;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &>textarea {
+            border: 1px solid #e8e5e5;
+            padding: 13px 10px;
+            width: 40%;
+            resize: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &.type {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+
+            &>button {
+                background-color: transparent;
+                border: 1px solid #000;
+                padding: 7px 10px;
+                cursor: pointer;
+
+                &.selected {
+                    background-color: #000;
+                    color: #fff;
+                    &:hover {
+                        background-color: #000;
+                        color: #fff;
+                    }
+                }
+
+                &:hover {
+                    background-color: #00000098;
+                    color: #fff;
+                }
+
+            }
+        }
+
+        &.create {
+            padding: 0px 0px;
+
+            &>button {
+                border: none;
+                background-color: transparent;
+                font-size: 16px;
+                padding: 20px;
+                cursor: pointer;
+                width: 100%;
+            }
+        }
+    }
+}
