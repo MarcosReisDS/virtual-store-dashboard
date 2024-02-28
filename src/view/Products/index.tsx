@@ -127,7 +127,7 @@ const Products: FC<IProducts> = ({routerValue }) => {
             setSize(data)
         })
         viewProduct()
-    }, [])
+    }, [product])
     
     return (
         <div className={routerValue ? "container-products closed" : "container-products open"}>
