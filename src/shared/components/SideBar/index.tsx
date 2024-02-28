@@ -40,7 +40,7 @@ const SideBar: FC<ISideBar> = ({ onSidebarChange }) => {
                         <h1>as</h1>
                     </div>
                     <div className="hide-user">
-                        <img src="https://i.pinimg.com/564x/e4/64/f2/e464f2d2e1a924da03b29b2fe622e716.jpg" alt="" />
+                        <img src="https://i.pinimg.com/564x/80/b6/b6/80b6b647fbd4929f1f5ad0affeab7e21.jpg" alt="" />
                     </div>
                     {navi.map((item, index) => (
                         <div
@@ -65,7 +65,7 @@ const SideBar: FC<ISideBar> = ({ onSidebarChange }) => {
                     </div>
                     <div className="my-user">
                         <div className="user" onClick={() => setOpenUser(openUser ? false : true)}>
-                            <img src="https://i.pinimg.com/564x/e4/64/f2/e464f2d2e1a924da03b29b2fe622e716.jpg" alt="Minha foto" />
+                            <img src="https://i.pinimg.com/564x/80/b6/b6/80b6b647fbd4929f1f5ad0affeab7e21.jpg" alt="Minha foto" />
                             <p>Meu nome</p>
                             <SlArrowDown className="arrow" />
                         </div>
