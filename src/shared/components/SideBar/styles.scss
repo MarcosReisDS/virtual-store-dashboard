@@ -1,0 +1,212 @@
+.container-side-bar {
+    width: 21%;
+    background-color: #181824;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 0px;
+    transition: .2s;
+    z-index: 9999;
+
+    &.hide {
+        gap: 0;
+        padding: 0px 0px;
+        width: 7%;
+
+        &>.hide-hamburgue {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0px;
+            font-size: 25px;
+            color: #5b5a5c;
+            border-bottom: 1px solid #5b5a5c;
+            cursor: pointer;
+        }
+
+        &>.hide-logo {
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0px;
+            border-bottom: 1px solid #5b5a5c;
+            cursor: default;
+
+        }
+
+        &>.hide-user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0px;
+            border-bottom: 1px solid #5b5a5c;
+
+            &>img {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        &>.hide-itens {
+            font-size: 30px;
+            color: #5b6062;
+            font-size: 20px;
+            padding: 20px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid #5b5a5c;
+            cursor: pointer;
+            position: relative;
+
+            &.selected {
+                background-color: #0e0e15;
+            }
+
+            &:last-child {
+                border-bottom: transparent;
+
+            }
+
+            &:hover {
+
+                &>div {
+                    display: flex;
+                    position: absolute;
+                    right: -90px;
+                    background-color: #181824;
+                    padding: 20px 0px;
+                    width: 100%;
+                    font-size: 17px;
+                    border-radius: 0px 5px 5px 0px;
+                    color: #fff;
+                    &.selected {
+                        background-color: #0e0e15;
+                    }
+                }
+            }
+
+            &>div {
+                display: none;
+            }
+
+        }
+    }
+
+    &>.head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 40px;
+
+        &>h1 {
+            font-size: 22px;
+            color: #fff;
+            cursor: default;
+        }
+
+        &>.hamburger {
+            color: #5b5a5c;
+            font-size: 25px;
+            cursor: pointer;
+        }
+    }
+
+    &>.my-user {
+        color: #fff;
+        cursor: pointer;
+        padding: 0px 40px;
+
+        &>.user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &>img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            &>p {
+                font-size: 18px;
+            }
+        }
+
+
+        &>.drop {
+            padding: 20px 10px;
+            margin-top: 10px;
+            background-color: #0e0e15;
+            border-radius: 3px;
+            display: none;
+
+            &.open {
+                display: flex;
+            }
+
+            &:hover {
+                &>div {
+                    &>p {
+                        color: #b3b3b3;
+                    }
+                }
+            }
+
+            &>div {
+                display: flex;
+                gap: 20px;
+
+
+                &>.switch {
+                    color: #5b6062;
+                    font-size: 15px;
+                }
+
+                &>p {
+                    font-size: 15px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &>.navigation {
+        &>ul {
+            color: #fff;
+            list-style-type: none;
+            cursor: pointer;
+            padding: 10px 0px;
+            height: 40px;
+
+            &.selected {
+                background-color: #0e0e15;
+            }
+
+            &:hover {
+                background-color: #0e0e15;
+            }
+
+            &>li {
+                padding: 0px 40px;
+
+                &>a {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    font-size: 17px;
+
+                    &>.icon {
+                        color: #5b6062;
+                    }
+                }
+            }
+        }
+    }
+}
