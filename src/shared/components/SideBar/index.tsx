@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, useContext, useState } from "react"
 import { RxHamburgerMenu } from "react-icons/rx";
 import { SlArrowDown } from "react-icons/sl";
 import { FaRegUser } from "react-icons/fa6";
@@ -6,19 +6,28 @@ import { BsBoxSeam } from "react-icons/bs";
 import { ImSwitch } from "react-icons/im";
 import "./styles.scss"
 import { useNavigate } from "react-router-dom";
+import Contexts, { IContext } from "../../contexts";
+import { deleteCookie } from "../../utils/cookies";
 
 interface ISideBar {
-    onSidebarChange: (value: any) => void;
+    
  }
-const SideBar: FC<ISideBar> = ({ onSidebarChange }) => {
+const SideBar: FC<ISideBar> = () => {
     const navigate = useNavigate()
     const [hide, setHide] = useState<boolean>(false)
     const [openUser, setOpenUser] = useState<boolean>(false)
+
+    const { onSidebarChange, user } = useContext(Contexts) as IContext
 
     const handleSidebarChange = (click: boolean) => {
         onSidebarChange(click);
         setHide(click)
       };
+
+      const handleLogOut = () => {
+        deleteCookie("token")
+        navigate("/conectar")
+      }
 
     const navi = [
         {
@@ -40,7 +49,7 @@ const SideBar: FC<ISideBar> = ({ onSidebarChange }) => {
                         <h1>as</h1>
                     </div>
                     <div className="hide-user">
-                        <img src="https://i.pinimg.com/564x/80/b6/b6/80b6b647fbd4929f1f5ad0affeab7e21.jpg" alt="" />
+                        <img src={user.profile} alt="" />
                     </div>
                     {navi.map((item, index) => (
                         <div
@@ -65,12 +74,12 @@ const SideBar: FC<ISideBar> = ({ onSidebarChange }) => {
                     </div>
                     <div className="my-user">
                         <div className="user" onClick={() => setOpenUser(openUser ? false : true)}>
-                            <img src="https://i.pinimg.com/564x/80/b6/b6/80b6b647fbd4929f1f5ad0affeab7e21.jpg" alt="Minha foto" />
-                            <p>Meu nome</p>
+                            <img src={user.profile} alt="Minha foto" />
+                            <p>{user.name}</p>
                             <SlArrowDown className="arrow" />
                         </div>
                         <div className={openUser ? "drop open" : "drop"}>
-                            <div>
+                            <div onClick={handleLogOut}>
                                 <ImSwitch className="switch" />
                                 <p>Sair</p>
                             </div>
