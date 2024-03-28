@@ -1,12 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 import "./styles.scss"
 import { useNavigate } from "react-router-dom";
 import productApi from "../../shared/services/product";
+import Contexts, { IContext } from "../../shared/contexts";
 
 interface IAdd { 
-    routerValue: any
 }
-const Add: FC<IAdd> = ({routerValue }) => {
+const Add: FC<IAdd> = () => {
+
+    const { valueSidebar } = useContext(Contexts) as IContext
+
     const navigate = useNavigate()
     const [products, setProducts] = useState<ProductType[]>([])
     const [teste, setTeste] = useState<ProductType>({
@@ -68,7 +71,7 @@ const Add: FC<IAdd> = ({routerValue }) => {
     }, [urlFoto, name, description, value, quantity, type])
 
     return (
-        <div className={routerValue ? "container-add closed" : "container-add open"}>
+        <div className={valueSidebar ? "container-add closed" : "container-add open"}>
             {window.location.pathname == `/produtos/editar/${teste.id}` ?
                 <>
                     <div className="container url">
