@@ -1,22 +1,14 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useContext } from "react"
 import "./styles.scss"
-import userApi from "../../shared/services/user"
+import Contexts, { IContext } from "../../shared/contexts"
 
 interface IUsers {
-    routerValue: any
  }
-const Users: FC<IUsers> = ({routerValue}) => {
-
-    const [users, setUsers] = useState<UserType[]>([])
-
-    useEffect(() => {
-        userApi.listUsers().then(data => {
-            setUsers(data)
-        })
-    }, [users])
+const Users: FC<IUsers> = () => {
+    const { valueSidebar, users } = useContext(Contexts) as IContext
 
     return (
-        <div className={routerValue ? "container-users closed" : "container-users open"}>
+        <div className={valueSidebar ? "container-users closed" : "container-users open"}>
             <div>
                 <div className="table">
                     <div className="title">
