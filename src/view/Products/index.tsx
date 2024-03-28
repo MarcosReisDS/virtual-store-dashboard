@@ -1,15 +1,18 @@
-import { FC, useEffect, useState } from "react"
+import { FC, useContext, useEffect, useState } from "react"
 import { IoIosArrowUp } from "react-icons/io";
 import "./styles.scss"
 import { useNavigate } from "react-router-dom";
 import { IoTrashBinSharp } from "react-icons/io5";
 import { FaEdit } from "react-icons/fa";
 import productApi from "../../shared/services/product";
+import Contexts, { IContext } from "../../shared/contexts";
 
 interface IProducts {
-    routerValue: any;
 }
-const Products: FC<IProducts> = ({routerValue }) => {
+const Products: FC<IProducts> = () => {
+
+    const { valueSidebar } = useContext(Contexts) as IContext
+
     const navigate = useNavigate()
     const [product, setProduct] = useState<ProductType[]>([])
     const [color, setColor] = useState<ColorType[]>([])
@@ -130,7 +133,7 @@ const Products: FC<IProducts> = ({routerValue }) => {
     }, [product])
     
     return (
-        <div className={routerValue ? "container-products closed" : "container-products open"}>
+        <div className={valueSidebar ? "container-products closed" : "container-products open"}>
             <div>
                 <button onClick={() => navigate("/produtos/adicionar")}>Adicionar produto</button>
             </div>
