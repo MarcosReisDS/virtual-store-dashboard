@@ -30,11 +30,12 @@ export default class Api {
         })
     }
 
-    async get(path: string, params: any): Promise<any> {
+    async get(path: string, params: any, header?: any): Promise<any> {
         return await this.resquest({
             method: "GET",
             url: this.base_url + path,
-            params: params
+            params: params,
+            headers: {'Authorization': `Bearer ${header}`}
         })
     }
 
