@@ -19,6 +19,19 @@ export interface IProductType {
     type: string;
 }
 
+export interface IColorType {
+    id?: number
+    productId?: number
+    name: string
+    value: string
+}
+
+export interface ISizeType {
+    id?: number
+    productId?: number
+    size: string
+}
+
 export interface Jwt {
     email: string;
     exp: number;
@@ -30,11 +43,20 @@ export interface Jwt {
 export interface IContext {
     user: IUserType
     users: IUserType[]
+    products: IProductType[]
+    id: any
+    product: IProductType
+    colors: IColorType[]
+    sizes: ISizeType[]
     valueSidebar: boolean
     token: string;
-    setToken: Dispatch<SetStateAction<string>>
     setUser: Dispatch<SetStateAction<IUserType>>;
     setUsers: Dispatch<SetStateAction<IUserType[]>>;
+    setProducts: Dispatch<SetStateAction<IProductType[]>>;
+    setId: Dispatch<SetStateAction<any>>;
+    setProduct: Dispatch<SetStateAction<IProductType>>;
+    setColors: Dispatch<SetStateAction<IColorType[]>>;
+    setSizes: Dispatch<SetStateAction<ISizeType[]>>;
     onSidebarChange: (value: any) => void;
 }
 
