@@ -3,73 +3,73 @@ import Api from "../api";
 class ProductApi {
     private product_api = new Api("virtual")
 
-    async listProducts(id?: number) {
+    async listProducts(token?: any, id?: number) {
         if (id) {
-            let data = await this.product_api.get(`/products/?id=${id}`, {})
+            let data = await this.product_api.get(`/products/?id=${id}`, {}, token)
 
             return data
         }
-        let data = await this.product_api.get("/products", {})
+        let data = await this.product_api.get("/products", {}, token)
 
         return data
     }
 
-    async listColors(id?: number) {
+    async listColors(token?: any, id?: number) {
         if (id) {
-            let dataColor = await this.product_api.get(`/products/colors/?id=${id}`, {})
+            let dataColor = await this.product_api.get(`/products/colors/?id=${id}`, {}, token)
 
             return dataColor
         }
-        let dataColor = await this.product_api.get("/products/colors", {})
+        let dataColor = await this.product_api.get("/products/colors", {}, token)
 
         return dataColor
     }
 
-    async listSizes(id?: number) {
+    async listSizes(token?: any, id?: number) {
         if (id) {
-            let dataSize = await this.product_api.get(`/products/sizes/?id=${id}`, {})
+            let dataSize = await this.product_api.get(`/products/sizes/?id=${id}`, {}, token)
 
             return dataSize
         }
-        let dataSize = await this.product_api.get("/products/sizes", {})
+        let dataSize = await this.product_api.get("/products/sizes", {}, token)
 
         return dataSize
     }
 
-    async createProduct(product: ProductType) {
-        return this.product_api.post("/products", { ...product })
+    async createProduct(product: ProductType, token?: any) {
+        return this.product_api.post("/products", { ...product }, token)
     }
 
-    async createColorProduct(productId: number, color: ColorType) {
-        return this.product_api.post(`/products/colors/${productId}`, { ...color })
+    async createColorProduct(productId: number, color: ColorType, token?: any) {
+        return this.product_api.post(`/products/colors/${productId}`, { ...color }, token)
     }
 
-    async createSizeProduct(productId: number, size: SizeType) {
-        return this.product_api.post(`/products/sizes/${productId}`, { ...size })
+    async createSizeProduct(productId: number, size: SizeType, token?: any) {
+        return this.product_api.post(`/products/sizes/${productId}`, { ...size }, token)
     }
 
-    async updateProduct(product: ProductType) {
-        return this.product_api.put(`/products/${product?.id}`, { ...product })
+    async updateProduct(product: ProductType, token: any) {
+        return this.product_api.put(`/products/${product?.id}`, { ...product }, token)
     }
 
-    async updateColor(color: ColorType) {
-        return this.product_api.put(`/products/colors/${color?.id}`, { ...color })
+    async updateColor(color: ColorType, token: any) {
+        return this.product_api.put(`/products/colors/${color?.id}`, { ...color }, token)
     }
 
-    async updateSize(size: SizeType) {
-        return this.product_api.put(`/products/sizes/${size?.id}`, { ...size })
+    async updateSize(size: SizeType, token: any) {
+        return this.product_api.put(`/products/sizes/${size?.id}`, { ...size }, token)
     }
 
-    async deleteProduct(product_id: number) {
-        return this.product_api.delete(`/products/${product_id}`)
+    async deleteProduct(product_id: number, token?: any) {
+        return this.product_api.delete(`/products/${product_id}`, token)
     }
 
-    async deleteColor(color_id: number) {
-        return this.product_api.delete(`/products/colors/${color_id}`)
+    async deleteColor(color_id: number, token?: any) {
+        return this.product_api.delete(`/products/colors/${color_id}`, token)
     }
 
-    async deleteSize(size_id: number) {
-        return this.product_api.delete(`/products/sizes/${size_id}`)
+    async deleteSize(size_id: number, token?: any) {
+        return this.product_api.delete(`/products/sizes/${size_id}`, token)
     }
 }
 
