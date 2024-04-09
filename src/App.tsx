@@ -4,8 +4,9 @@ import Router from './shared/router'
 import { getCookie } from './shared/utils/cookies';
 import { jwtDecode } from "jwt-decode";
 import userApi from './shared/services/user';
-import Contexts, { IUserType, Jwt } from './shared/contexts';
+import Contexts, { IColorType, IProductType, ISizeType, IUserType, Jwt } from './shared/contexts';
 import { useLocation } from 'react-router-dom';
+import productApi from './shared/services/product';
 
 interface IApp { }
 const App: FC<IApp> = () => {
@@ -19,6 +20,19 @@ const App: FC<IApp> = () => {
     admin: true
   })
   const [users, setUsers] = useState<IUserType[]>([])
+
+  const [products, setProducts] = useState<IProductType[]>([])
+  const [id, setId] = useState<any>(0)
+  const [product, setProduct] = useState<IProductType>({
+    image: '',
+    name: '',
+    description: '',
+    price: '',
+    quantity: '',
+    type: ''
+  })
+  const [colors, setColors] = useState<IColorType[]>([])
+  const [sizes, setSizes] = useState<ISizeType[]>([])
 
   const [token, setToken] = useState<string>("")
 
@@ -36,22 +50,48 @@ const App: FC<IApp> = () => {
           admin: data?.admin
         })
       })
-    }
 
-    userApi.listUsers(Number(user?.admin), token).then((data: any) => {
-      setUsers(data)
-    })
+      userApi.listUsers(Number(user?.admin), token).then((data: any) => {
+        setUsers(data)
+      })
+
+      productApi.listProducts(token).then(data => {
+        setProducts(data)
+      })
+
+      productApi.listProducts(token, id).then(data => {
+        setProduct(data)
+      })
+
+      productApi.listColors(token).then(data => {
+        setColors(data)
+      })
+
+      productApi.listSizes(token).then(data => {
+        setSizes(data)
+      })
+    }
   }, [token, pathname])
+
 
   return (
     <Contexts.Provider value={{
       token,
-      setToken,
       user,
       users,
+      products,
+      id,
+      product,
+      colors,
+      sizes,
       valueSidebar,
       setUser,
       setUsers,
+      setProducts,
+      setId,
+      setProduct,
+      setColors,
+      setSizes,
       onSidebarChange(value) {
         setValueSidebar(value);
       },
