@@ -39,26 +39,29 @@ export default class Api {
         })
     }
 
-    async put(path: string, data: any): Promise<any> {
+    async put(path: string, data: any, header?: any): Promise<any> {
         return await this.resquest({
             method: "PUT",
             url: this.base_url + path,
-            data: data
+            data: data,
+            headers: {'Authorization': `Bearer ${header}`}
         })
     }
 
-    async post(path: string, data: any): Promise<any> {
+    async post(path: string, data: any, header?: any): Promise<any> {
         return await this.resquest({
             method: "POST",
             url: this.base_url + path,
-            data: data
+            data: data,
+            headers: {'Authorization': `Bearer ${header}`}
         })
     }
 
-    async delete(path: string): Promise<any> {
+    async delete(path: string, header?: any): Promise<any> {
         return await this.resquest({
             method: "DELETE",
             url: this.base_url + path,
+            headers: {'Authorization': `Bearer ${header}`}
         })
     }
 }
